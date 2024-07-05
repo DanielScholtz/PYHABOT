@@ -1,4 +1,5 @@
 import dotenv
+import os
 config = dotenv.dotenv_values(".env")
 
 
@@ -9,7 +10,7 @@ def main():
 
     if config["INTEGRATION"] == "discord":
         import classes.integrations.discord as DiscordIntegration
-        DiscordIntegration.init(config["TOKEN"])
+        DiscordIntegration.init(os.environ['TOKEN'])
         
     elif config["INTEGRATION"] == "telegram":
         import classes.integrations.telegram as TelegramIntegration
