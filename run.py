@@ -4,9 +4,6 @@ config = dotenv.dotenv_values(".env")
 
 
 def main():
-    if config["TOKEN"] == "False":
-        print(f"Missing bot token.")
-        return
 
     if config["INTEGRATION"] == "discord":
         import classes.integrations.discord as DiscordIntegration
